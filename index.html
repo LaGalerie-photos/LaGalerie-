@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LaGalerie</title>
+  <meta name="description" content="Galerie photo responsive avec filtres, recherche et lightbox." />
+  <link rel="preload" as="style" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>LaGalerie</h1>
+      <p class="tagline">Un portfolio simple et élégant</p>
+    </div>
+    <nav class="controls">
+      <input id="search" type="search" placeholder="Rechercher (titre, tags)…" aria-label="Recherche" />
+      <div id="filters" class="filters" aria-label="Filtres catégories"></div>
+      <button id="themeToggle" class="btn" aria-label="Basculer le thème">🌙/☀️</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="gallery" class="gallery" aria-live="polite" aria-busy="true"></section>
+
+    <template id="cardTemplate">
+      <article class="card" tabindex="0">
+        <div class="thumb-wrap">
+          <img class="thumb" alt="" loading="lazy" />
+        </div>
+        <div class="meta">
+          <h3 class="title"></h3>
+          <p class="tags"></p>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lb-close" aria-label="Fermer (Esc)">✕</button>
+    <button class="lb-prev" aria-label="Précédent">‹</button>
+    <figure class="lb-figure">
+      <img id="lbImage" alt="" />
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lb-next" aria-label="Suivant">›</button>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> — LaGalerie • Créé avec ❤️</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

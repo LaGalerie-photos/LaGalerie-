@@ -1,0 +1,101 @@
+
+:root {
+  --bg: #0f1220;
+  --card: #15192d;
+  --text: #e8eaf6;
+  --muted: #aab1d6;
+  --accent: #7aa2ff;
+  --accent-2: #ff9e64;
+  --border: #22263f;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+:root.light {
+  --bg: #f7f8fd;
+  --card: #ffffff;
+  --text: #111320;
+  --muted: #546072;
+  --accent: #3d63ff;
+  --accent-2: #ff6a3d;
+  --border: #e7e9f2;
+  --shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(122,162,255,.15), transparent 60%),
+              radial-gradient(1000px 600px at 100% 0%, rgba(255,158,100,.12), transparent 50%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+/* Header */
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: clamp(16px, 2vw, 28px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  backdrop-filter: saturate(1.2) blur(8px);
+  background: color-mix(in oklab, var(--bg) 86%, transparent);
+  z-index: 10;
+}
+.brand h1 { margin: 0; font-size: clamp(1.2rem, 2.4vw, 1.8rem); }
+.tagline { margin: .15rem 0 0; color: var(--muted); font-size: .95rem; }
+.controls { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+#search {
+  min-width: 220px; max-width: 360px; width: 100%;
+  padding: .6rem .8rem; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--card); color: var(--text); outline: none;
+}
+.filters { display: flex; gap: .5rem; flex-wrap: wrap; }
+.btn, .filters button {
+  padding: .5rem .8rem; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--card); color: var(--text); cursor: pointer;
+}
+.filters button.active { border-color: var(--accent); color: var(--accent); }
+.btn:hover, .filters button:hover { transform: translateY(-1px); }
+#themeToggle { font-size: .95rem; }
+/* Gallery grid */
+.gallery {
+  padding: clamp(16px, 3vw, 32px);
+  display: grid; gap: clamp(10px, 1.5vw, 18px);
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+}
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: var(--shadow); overflow: hidden; transition: transform .15s ease;
+  outline: none;
+}
+.card:focus-visible { box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 40%, transparent); }
+.card:hover { transform: translateY(-2px); }
+.thumb-wrap { aspect-ratio: 4/3; background: #0b0e18; position: relative; }
+.thumb { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.05) contrast(1.02); }
+.meta { padding: .8rem .9rem; }
+.title { margin: 0 0 .3rem; font-size: 1rem; }
+.tags { margin: 0; color: var(--muted); font-size: .9rem; }
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; display: grid; grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto; gap: 1rem; place-items: center;
+  background: color-mix(in oklab, black 65%, transparent);
+  opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility .2s ease;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lb-close, .lb-prev, .lb-next {
+  background: rgba(0,0,0,.35); color: #fff; border: 1px solid rgba(255,255,255,.25);
+  border-radius: 12px; padding: .5rem .7rem; cursor: pointer;
+}
+.lb-prev { grid-column: 1; grid-row: 2; font-size: 2rem; }
+.lb-next { grid-column: 3; grid-row: 2; font-size: 2rem; }
+.lb-close { grid-column: 3; grid-row: 1; justify-self: end; font-size: 1.1rem; margin: .8rem; }
+.lb-figure { grid-column: 2; grid-row: 2; max-width: min(92vw, 1400px); max-height: 80vh; margin: 0; }
+.lb-figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.lb-figure figcaption { text-align: center; margin-top: .6rem; color: #e9e9f0; }
+/* Footer */
+.site-footer { padding: 24px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+.site-footer a { color: var(--accent); text-decoration: none; }
