@@ -1,0 +1,38 @@
+[
+  {
+    "src": "photos/montagne-01.svg",
+    "title": "Lever de soleil sur les Alpes",
+    "description": "Lumière dorée à 6h45, altitude 2 100 m.",
+    "categories": [
+      "Paysage"
+    ],
+    "tags": [
+      "montagne",
+      "lever de soleil",
+      "alpes"
+    ],
+    "alt": "Sommets alpins au lever du soleil avec ciel doré"
+  },
+  {
+    "src": "photos/ville-01.svg",
+    "title": "Rue de nuit",
+    "description": "Reflets de pluie et néons bleus.",
+    "categories": [
+      "Urbain"
+    ],
+    "tags": [
+      "nuit",
+      "néons",
+      "street"
+    ],
+    "alt": "Rue nocturne brillante avec reflets et néons"
+  },
+  {
+    "src": "photos/photo-vacances.jpg",
+    "title": "Vacances 2025",
+    "description": "Plage au coucher de soleil",
+    "categories": ["Voyage"],
+    "tags": ["plage", "vacances", "soleil"],
+    "alt": "Photo d'une plage au coucher du soleil"
+  }
+]
